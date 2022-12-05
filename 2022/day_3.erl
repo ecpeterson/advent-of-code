@@ -55,9 +55,7 @@ badges(Handle, Acc) ->
 -spec split_halves(string()) -> {string(), string()}.
 split_halves(Line) ->
     Length = length(Line),
-    FirstHalf = lists:sublist(Line, Length div 2),
-    SecondHalf = lists:sublist(Line, Length div 2 + 1, Length div 2),
-    {FirstHalf, SecondHalf}.
+    lists:split(Line, Length div 2).
 
 %%% Remove any carriage returns from a line.
 -spec strip(string()) -> string().
