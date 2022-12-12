@@ -30,7 +30,7 @@ process_moves(Handle, TailPoses, HeadPos, TailsPos) ->
     case io:get_line(Handle, none) of
         eof ->
             TailPoses;
-        [Direction, $  | MoveCountStr] ->
+        [Direction, ($ ) | MoveCountStr] ->
             MoveCount = list_to_integer(string:chomp(MoveCountStr)),
             Offset = case Direction of
                 $U -> {0, -1};
