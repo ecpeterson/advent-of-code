@@ -1,5 +1,5 @@
 -module(day_1).
--export([start_1/1, start_2/1]).
+-export([start_1/1, start_2/1, read_file/1]).
 
 start_1([Filename]) ->
     Lines = read_file(Filename),
@@ -64,5 +64,5 @@ read_file(Handle) ->
             file:close(Handle),
             [];
         Line ->
-            [Line | read_file(Handle)]
+            [string:chomp(Line) | read_file(Handle)]
     end.
